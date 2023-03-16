@@ -1,0 +1,49 @@
+<div class="container">
+    <div class="col-12">
+        <div class="row">
+            <div class="col-4">
+                <input [(ngModel)]="filtro" placeholder="Filtro de Nombre">
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4">
+                <button class="btn btn-light" (click)="Buscar()">Buscar</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3"></div>
+            <div class="col-6">
+                <table class="table table-striped">
+                    <thead>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Descripcion</th>
+                        <th scope="col">Accion</th>
+                    </thead>
+                    <tbody *ngFor="let usuario of usuarios">
+                        <tr>
+                            <td>{{usuario.Nombre}}</td>
+                            <td>{{usuario.Descripcion}}</td>
+                            <td><button class="btn btn-light" (click)="Eliminar(usuario)"><i i-bs name="search"></i>
+                                    Borrar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <input type="text" class="form-control" [(ngModel)]="usuarioNuevo.Nombre" name="Nombre"
+                    #Nombre="ngModel" placeholder="Nombre">
+            </div>
+            <div class="col-4">
+                <input type="text" class="form-control" [(ngModel)]="usuarioNuevo.Descripcion" name="Descripcion"
+                    #Descripcion="ngModel" placeholder="Descripcion">
+            </div>
+            <div class="col-4">
+                <button (click)="Crear(usuarioNuevo)">Crear</button>
+            </div>
+        </div>
+    </div>
+
+</div>
